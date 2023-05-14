@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="./css/sabis-logo.svg"
+        alt="sabis-logo"
+        width="200px"
+      />
+      <button id="burger-menu"><span></span></button>
+    </header>
+    <menu id="menu">
+      <a href="">Home</a>
+      <a href="">Welcome Message</a>
+      <a href="">News</a>
+      <a href="">Photo Gallery</a>
+      <a href="">Testimonials</a>
+    </menu>
+    <main>
+      <section class="slider">
+        <div class="image-container">
+          <img id="slider-img" src="css/4.jpg" alt="Image" />
+          <div class="message" id="message">
+            <h1 id="message-header">Hi Ahmed</h1>
+          </div>
+        </div>
+      </section>
+      <section class="president-word">
+        
+        <h1>Welcome to SABIS<sup>&reg;</sup></h1>
+        <div>
+          <img id="slider-img" src="css/4.jpg" alt="Image" />
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
+            dignissimos recusandae amet architecto tempora iste aspernatur,
+            maxime facere at ab velit corrupti, quam qui eum eligendi libero
+            alias itaque cumque. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Deserunt tempora aliquid saepe expedita eum magnam
+            voluptatibus quasi esse earum, quae animi iusto architecto, qui
+            officiis a dignissimos. Deleniti, nobis mollitia!
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
+            dignissimos recusandae amet architecto tempora iste aspernatur,
+            maxime facere at ab velit corrupti, quam qui eum eligendi libero
+            alias itaque cumque. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Deserunt tempora aliquid saepe expedita eum magnam
+            voluptatibus quasi esse earum, quae animi iusto architecto, qui
+            officiis a dignissimos. Deleniti, nobis mollitia!
+          </p>
+          <div class="clear-fix"></div>
+        </div>
+      </section>
+    
+    </main>
+    <script>
+      var images = [
+        {
+          imageSrc: "css/1.jpg",
+          message: "Hello Ahmed!",
+        },
+        {
+          imageSrc: "css/2.jpg",
+          message: "Hello Omar!",
+        },
+        {
+          imageSrc: "css/4.jpg",
+          message: "Hello Ali!",
+        },
+      ];
+      var index = 0;
+      const span = document.getElementById("burger-menu");
+      const menu = document.getElementById("menu");
+      span.addEventListener("click", function () {
+        span.classList.toggle("clicked");
+        menu.classList.toggle("open");
+      });
+
+      setInterval(() => {
+        index++;
+        var currentImage = images[index % images.length];
+        let img = document.getElementById("slider-img");
+        let message = document.getElementById("message");
+        let messageHeader = document.getElementById("message-header");
+        img.classList.add("hide");
+        message.classList.add("slide");
+        img.setAttribute("src", currentImage.imageSrc);
+        messageHeader.innerText = currentImage.message;
+        setTimeout(() => {
+          img.classList.remove("hide");
+          message.classList.remove("slide");
+        }, 3000);
+      }, 5000);
+    </script>
+  </body>
+</html>

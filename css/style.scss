@@ -1,0 +1,249 @@
+$green-light: #12854d;
+$green: #026937;
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+
+  header {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 0 5px #03030377;
+    .logo {
+      margin: 10px;
+    }
+    button {
+      background: none;
+      border: none;
+      position: relative;
+      width: 30px;
+      height: 20px;
+      margin-right: 25px;
+      margin-top: 25px;
+      cursor: pointer;
+      content: "";
+      &:before,
+      &:after,
+      span {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: $green;
+        border-radius: 9px;
+        opacity: 1;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: 0.25s ease-in-out;
+        -moz-transition: 0.25s ease-in-out;
+        -o-transition: 0.25s ease-in-out;
+        transition: 0.25s ease-in-out;
+      }
+      &:before {
+        top: 0;
+      }
+      &:after {
+        transform: translateY(6px);
+        bottom: 0;
+      }
+      &:hover {
+        &:before,
+        &:after,
+        span {
+          background: $green-light;
+        }
+      }
+    }
+    .clicked {
+      &:after {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        top: 18px;
+      }
+      &:before {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        top: 18px;
+      }
+      span {
+        animation: slide-out-left 0.3s forwards;
+        opacity: 0;
+      }
+    }
+  }
+  menu {
+    height: 1500px;
+    background: $green;
+    width: 100%;
+    position: fixed;
+    top: 63px;
+    left: -100%;
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    padding: 30px;
+    transition: left 0.8s ease-in-out;
+    z-index: 3;
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      margin-top: 15px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .open {
+    left: 0;
+  }
+  main {
+    height: 1500px;
+    background: #fff;
+    margin-top: 66px;
+
+    section {
+      &.slider {
+        height: 700px;
+        width: 100%;
+        div.image-container {
+          width: 100%;
+          overflow: hidden;
+          height: 100%;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+            transition: all 2s ease-in-out;
+            &.hide {
+              opacity: 0.8;
+              transform: scale(1.1);
+            }
+          }
+          div.message {
+            height: 80px;
+            background: #060e0a7c;
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            box-sizing: border-box;
+            padding-left: 10px;
+            transform: translateY(80px);
+            transition: transform 2s ease-in-out;
+            transition-delay: 1s;
+
+            h1 {
+              width: 100%;
+              height: 100%;
+              color: #fff;
+              font-family: sans-serif;
+              text-align: left;
+              font-size: xx-large;
+              font-weight: lighter;
+            }
+            &.slide {
+              transform: translateY(-80px);
+            }
+          }
+        }
+      }
+      &.president-word {
+        height: 600px;
+        background: #ffffff7c;
+        width: 100%;
+        text-align: center;
+        h1 {
+          color: #0f82c7;
+          font-family: initial;
+          font-style: italic;
+          font-weight: 500;
+          font-size: xx-large;
+          margin-top: 5rem;
+        }
+        div {
+          margin: 20px;
+          text-align: left;
+          img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 10px;
+           float: left;
+          }
+
+          p {
+            margin-right: 10px;
+            color: #8f8e8e;
+          
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    menu {
+      width: 260px;
+    }
+    main {
+      section {
+        &.slider {
+          height: 870px;
+        }
+        &.president-word {
+            text-align: left;
+            padding-left: 15%;
+          h1 {
+            color: #0f82c7;
+            font-family: initial;
+            font-style: italic;
+            font-weight: 500;
+            font-size: xx-large;
+            margin-top: 2rem;
+
+          }
+          div {
+            margin: 0px;
+            text-align: left;
+            margin-right: 15%;
+           
+            p {
+              text-overflow: wrap;
+              margin-right: 15%;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
