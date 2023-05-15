@@ -79,7 +79,7 @@ body menu {
   flex-flow: column;
   box-sizing: border-box;
   padding: 30px;
-  transition: left 0.8s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   z-index: 3;
 }
 body menu a {
@@ -90,7 +90,7 @@ body menu a {
   position: relative;
   width: -moz-fit-content;
   width: fit-content;
-  transition: transform 0.9s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   left: -200px;
 }
 body menu a.animate {
@@ -116,16 +116,16 @@ body menu a:nth-of-type(2) {
   transition-delay: 0.1s;
 }
 body menu a:nth-of-type(3) {
-  transition-delay: 0.3s;
+  transition-delay: 0.2s;
 }
 body menu a:nth-of-type(4) {
-  transition-delay: 0.5s;
+  transition-delay: 0.3s;
 }
 body menu a:nth-of-type(5) {
-  transition-delay: 0.7s;
+  transition-delay: 0.4s;
 }
 body .open {
-  left: 0;
+  transform: translateX(100%);
 }
 body main {
   height: 1500px;
@@ -281,6 +281,7 @@ body main section.president-word div.testimonials div.latest-news div.news div a
 @media screen and (min-width: 768px) {
   body menu {
     width: 260px;
+    left: -260px;
   }
   body main section.slider {
     height: 870px;
