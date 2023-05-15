@@ -217,7 +217,7 @@ body main section.president-word div.word div p {
   color: #8f8e8e;
 }
 body main section.president-word div.testimonials {
-  background-image: url("/Images/2.jpg");
+  background-image: url("Images/2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin: 0;
