@@ -11,7 +11,7 @@ body header {
   height: 80px;
   justify-content: space-between;
   position: fixed;
-  background: #fff;
+  background: white;
   top: 0;
   left: 0;
   width: 100%;
@@ -83,20 +83,53 @@ body menu {
   z-index: 3;
 }
 body menu a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   margin-top: 15px;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: transform 0.9s ease-in-out;
+  left: -200px;
 }
-body menu a:hover {
-  text-decoration: underline;
+body menu a.animate {
+  transform: translateX(200px);
+}
+body menu a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 0;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+body menu a:hover:after {
+  width: 100%;
+}
+body menu a:nth-of-type(1) {
+  transition-delay: 0s;
+}
+body menu a:nth-of-type(2) {
+  transition-delay: 0.1s;
+}
+body menu a:nth-of-type(3) {
+  transition-delay: 0.3s;
+}
+body menu a:nth-of-type(4) {
+  transition-delay: 0.5s;
+}
+body menu a:nth-of-type(5) {
+  transition-delay: 0.7s;
 }
 body .open {
   left: 0;
 }
 body main {
   height: 1500px;
-  background: #fff;
+  background: white;
   margin-top: 66px;
 }
 body main section.slider {
@@ -126,7 +159,7 @@ body main section.slider div.image-container img.hide {
 }
 body main section.slider div.image-container div.message {
   height: 80px;
-  background: rgba(6, 14, 10, 0.4862745098);
+  background: rgba(3, 3, 3, 0.4666666667);
   width: 100%;
   position: absolute;
   z-index: 2;
@@ -140,7 +173,7 @@ body main section.slider div.image-container div.message {
 body main section.slider div.image-container div.message h1 {
   width: 100%;
   height: 100%;
-  color: #fff;
+  color: white;
   font-family: sans-serif;
   text-align: left;
   font-size: xx-large;
@@ -150,12 +183,13 @@ body main section.slider div.image-container div.message.slide {
   transform: translateY(-80px);
 }
 body main section.president-word {
-  height: 600px;
-  background: rgba(255, 255, 255, 0.4862745098);
-  width: 100%;
+  height: 6000px;
   text-align: center;
 }
-body main section.president-word h1 {
+body main section.president-word div.word {
+  background: white;
+}
+body main section.president-word div.word h1 {
   color: #0f82c7;
   font-family: initial;
   font-style: italic;
@@ -163,11 +197,11 @@ body main section.president-word h1 {
   font-size: xx-large;
   margin-top: 5rem;
 }
-body main section.president-word div {
-  margin: 20px;
+body main section.president-word div.word div {
+  padding: 20px;
   text-align: left;
 }
-body main section.president-word div img {
+body main section.president-word div.word div img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -178,9 +212,70 @@ body main section.president-word div img {
   margin-right: 10px;
   float: left;
 }
-body main section.president-word div p {
+body main section.president-word div.word div p {
   margin-right: 10px;
   color: #8f8e8e;
+}
+body main section.president-word div.testimonials {
+  background-image: url("/Images/2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 15%;
+  padding-top: 35px;
+  position: relative;
+}
+body main section.president-word div.testimonials:before {
+  content: "";
+  background-color: rgba(3, 3, 3, 0.4666666667);
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+body main section.president-word div.testimonials h1 {
+  color: white;
+  margin: 0;
+  font-size: x-large;
+  font-weight: 500;
+  font-style: italic;
+  z-index: 1;
+  position: inherit;
+}
+body main section.president-word div.testimonials div.latest-news {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+body main section.president-word div.testimonials div.latest-news div.news {
+  display: flex;
+  padding-bottom: 2rem;
+  z-index: 1;
+}
+body main section.president-word div.testimonials div.latest-news div.news img {
+  width: 100px;
+  border-radius: 12px;
+  margin-right: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+body main section.president-word div.testimonials div.latest-news div.news h4 {
+  color: white;
+  margin: 0;
+}
+body main section.president-word div.testimonials div.latest-news div.news div p {
+  color: white;
+}
+body main section.president-word div.testimonials div.latest-news div.news div a {
+  color: white;
 }
 
 @media screen and (min-width: 768px) {
@@ -190,11 +285,13 @@ body main section.president-word div p {
   body main section.slider {
     height: 870px;
   }
-  body main section.president-word {
+  body main section.president-word div {
     text-align: left;
+  }
+  body main section.president-word div.word {
     padding-left: 15%;
   }
-  body main section.president-word h1 {
+  body main section.president-word div.word h1 {
     color: #0f82c7;
     font-family: initial;
     font-style: italic;
@@ -202,13 +299,21 @@ body main section.president-word div p {
     font-size: xx-large;
     margin-top: 2rem;
   }
-  body main section.president-word div {
+  body main section.president-word div.word div {
     margin: 0px;
     text-align: left;
-    margin-right: 15%;
+    padding-left: 0;
+    padding-bottom: 20px;
   }
-  body main section.president-word div p {
+  body main section.president-word div.word div p {
     text-overflow: wrap;
     margin-right: 15%;
+  }
+  body main section.president-word div.testimonials {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  body main section.president-word div.testimonials div.latest-news div.news {
+    flex-basis: 50%;
   }
 }/*# sourceMappingURL=style.css.map */

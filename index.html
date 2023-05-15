@@ -18,70 +18,137 @@
       <button id="burger-menu"><span></span></button>
     </header>
     <menu id="menu">
-      <a href="">Home</a>
-      <a href="">Welcome Message</a>
-      <a href="">News</a>
-      <a href="">Photo Gallery</a>
-      <a href="">Testimonials</a>
+      <a href="" class="menu-link">Home</a>
+      <a href="" class="menu-link">Welcome Message</a>
+      <a href="" class="menu-link">News</a>
+      <a href="" class="menu-link">Photo Gallery</a>
+      <a href="" class="menu-link">Testimonials</a>
     </menu>
     <main>
       <section class="slider">
         <div class="image-container">
-          <img id="slider-img" src="css/4.jpg" alt="Image" />
+          <img id="slider-img" src="Images/4.jpg" alt="Image" />
           <div class="message" id="message">
             <h1 id="message-header">Hi Ahmed</h1>
           </div>
         </div>
       </section>
       <section class="president-word">
-        
-        <h1>Welcome to SABIS<sup>&reg;</sup></h1>
-        <div>
-          <img id="slider-img" src="css/4.jpg" alt="Image" />
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
-            dignissimos recusandae amet architecto tempora iste aspernatur,
-            maxime facere at ab velit corrupti, quam qui eum eligendi libero
-            alias itaque cumque. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Deserunt tempora aliquid saepe expedita eum magnam
-            voluptatibus quasi esse earum, quae animi iusto architecto, qui
-            officiis a dignissimos. Deleniti, nobis mollitia!
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
-            dignissimos recusandae amet architecto tempora iste aspernatur,
-            maxime facere at ab velit corrupti, quam qui eum eligendi libero
-            alias itaque cumque. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Deserunt tempora aliquid saepe expedita eum magnam
-            voluptatibus quasi esse earum, quae animi iusto architecto, qui
-            officiis a dignissimos. Deleniti, nobis mollitia!
-          </p>
-          <div class="clear-fix"></div>
+        <div class="word">
+          <h1>Welcome to SABIS<sup>&reg;</sup></h1>
+          <div>
+            <img id="slider-img" src="Images/4.jpg" alt="Image" />
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
+              dignissimos recusandae amet architecto tempora iste aspernatur,
+              maxime facere at ab velit corrupti, quam qui eum eligendi libero
+              alias itaque cumque. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Deserunt tempora aliquid saepe expedita eum
+              magnam voluptatibus quasi esse earum, quae animi iusto architecto,
+              qui officiis a dignissimos. Deleniti, nobis mollitia!
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
+              dignissimos recusandae amet architecto tempora iste aspernatur,
+              maxime facere at ab velit corrupti, quam qui eum eligendi libero
+              alias itaque cumque. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Deserunt tempora aliquid saepe expedita eum
+              magnam voluptatibus quasi esse earum, quae animi iusto architecto,
+              qui officiis a dignissimos. Deleniti, nobis mollitia!
+            </p>
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <h1>Our Latest News</h1>
+          <div class="latest-news">
+            <div class="news">
+              <img src="Images/4.jpg" alt="" />
+              <div class="info">
+                <h4>
+                  Lorem, ipsum dolor sit amet Sequi nisi magni dolorum delectus
+                  provident
+                </h4>
+                <p>
+                  Lorem ipsum Omnis ipariatur aut veritatis enim! Eveniet
+                  explicabo asperiores
+                </p>
+                <a href="">read more </a>
+              </div>
+            </div>
+            <div class="news">
+              <img src="Images/4.jpg" alt="" />
+              <div class="info">
+                <h4>
+                  Lorem, ipsum dolor sit amet Sequi nisi magni dolorum delectus
+                  provident
+                </h4>
+                <p>
+                  Lorem ipsum Omnis ipariatur aut veritatis enim! Eveniet
+                  explicabo asperiores
+                </p>
+                <a href="">read more </a>
+              </div>
+            </div>
+
+            <div class="news">
+              <img src="Images/4.jpg" alt="" />
+              <div class="info">
+                <h4>
+                  Lorem, ipsum dolor sit amet Sequi nisi magni dolorum delectus
+                  provident
+                </h4>
+                <p>
+                  Lorem ipsum Omnis ipariatur aut veritatis enim! Eveniet
+                  explicabo asperiores
+                </p>
+                <a href="">read more </a>
+              </div>
+            </div>
+            <div class="news">
+              <img src="Images/4.jpg" alt="" />
+              <div class="info">
+                <h4>
+                  Lorem, ipsum dolor sit amet Sequi nisi magni dolorum delectus
+                  provident
+                </h4>
+                <p>
+                  Lorem ipsum Omnis ipariatur aut veritatis enim! Eveniet
+                  explicabo asperiores
+                </p>
+                <a href="">read more </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-    
     </main>
     <script>
       var images = [
         {
-          imageSrc: "css/1.jpg",
+          imageSrc: "Images/1.jpg",
           message: "Hello Ahmed!",
         },
         {
-          imageSrc: "css/2.jpg",
+          imageSrc: "Images/2.jpg",
           message: "Hello Omar!",
         },
         {
-          imageSrc: "css/4.jpg",
+          imageSrc: "Images/4.jpg",
           message: "Hello Ali!",
         },
       ];
       var index = 0;
       const span = document.getElementById("burger-menu");
       const menu = document.getElementById("menu");
+      const links = document.getElementsByClassName("menu-link");
       span.addEventListener("click", function () {
         span.classList.toggle("clicked");
         menu.classList.toggle("open");
+        for (const element of links) {
+          element.classList.toggle("animate");
+        }
       });
 
       setInterval(() => {
