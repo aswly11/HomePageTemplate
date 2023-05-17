@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  display: flex;
   position: relative;
 }
 body header {
@@ -169,8 +168,7 @@ body main section.slider div div.message {
   box-sizing: border-box;
   padding-left: 10px;
   transform: translateY(80px);
-  transition: transform 2s ease-in-out;
-  transition-delay: 1s;
+  opacity: 1;
 }
 body main section.slider div div.message h1 {
   width: 100%;
@@ -182,7 +180,7 @@ body main section.slider div div.message h1 {
   font-weight: lighter;
 }
 body main section.slider div div.message.slide {
-  transform: translateY(-80px);
+  animation: slide 5s ease-in-out;
 }
 body main section.slider div.active {
   opacity: 1;
@@ -459,6 +457,63 @@ body section.show {
   z-index: 100;
   opacity: 1;
 }
+body footer {
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #7b6d65;
+  display: flex;
+  justify-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 3rem 3rem 3rem 1rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+body footer div.links a {
+  color: white;
+  display: block;
+  margin-bottom: 1rem;
+}
+body footer div.info h2,
+body footer div.info h3 {
+  color: white;
+}
+body footer div.info h2 span,
+body footer div.info h3 span {
+  text-decoration: underline;
+}
+body footer div.info h2 {
+  margin-top: 0;
+}
+body footer div.contact {
+  display: flex;
+  flex-direction: column;
+}
+body footer div.contact h2 {
+  margin-top: 0;
+  color: white;
+}
+body footer div.contact input {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+body footer div.contact textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  height: 100px;
+}
+body footer div.contact button {
+  width: 100px;
+  height: 30px;
+  color: white;
+  background-color: #0f82c7;
+  border: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+body footer div.contact button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 
 @media screen and (min-width: 768px) {
   body menu {
@@ -501,6 +556,9 @@ body section.show {
   }
   body main section.galary {
     grid-template-rows: repeat(4, 300px);
+  }
+  body footer {
+    flex-direction: row;
   }
 }
 @media screen and (min-width: 992px) {
@@ -563,5 +621,22 @@ body section.show {
     height: 100%;
     -o-object-fit: contain;
        object-fit: contain;
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateY(80px);
+  }
+  40% {
+    transform: translateY(-80px);
+  }
+  50% {
+    transform: translateY(-80px);
+  }
+  75% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(80px);
   }
 }/*# sourceMappingURL=style.css.map */

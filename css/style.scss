@@ -4,6 +4,7 @@ $green: #026937;
 $primary: #0f82c7;
 $box-shadow: #03030377;
 $gray: #8f8e8e;
+$footer: #7b6d65;
 $carousel-box: #000000c0;
 $arrow-size: 20px;
 $arrow-color: #000;
@@ -13,7 +14,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  display: flex;
   position: relative;
   header {
     display: flex;
@@ -196,8 +196,7 @@ body {
             box-sizing: border-box;
             padding-left: 10px;
             transform: translateY(80px);
-            transition: transform 2s ease-in-out;
-            transition-delay: 1s;
+            opacity: 1;
 
             h1 {
               width: 100%;
@@ -209,7 +208,7 @@ body {
               font-weight: lighter;
             }
             &.slide {
-              transform: translateY(-80px);
+              animation: slide 5s ease-in-out;
             }
           }
         }
@@ -525,7 +524,69 @@ body {
     &.show {
       z-index: 100;
       opacity: 1;
+    }
+  }
+  footer {
+    height: fit-content;
+    background: $footer;
+    display: flex;
+    justify-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 3rem 3rem 3rem 1rem;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    div {
+      &.links {
+        a {
+          color: white;
+          display: block;
+          margin-bottom: 1rem;
+        }
+      }
+      &.info {
+        h2,
+        h3 {
+          color: white;
+          span {
+            text-decoration: underline;
+          }
+        }
+        h2 {
+          margin-top: 0;
+        }
+      }
+      &.contact {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          margin-top: 0;
+          color: white;
+        }
+        input {
+          margin-bottom: 0.5rem;
+          padding: 0.5rem;
+        }
+        textarea {
+          padding: 0.5rem;
+          margin-bottom: 1rem;
+          height: 100px;
+        }
+        button {
+          width: 100px;
+          height: 30px;
+          color: white;
+          background-color: #0f82c7;
+          border: 0;
+          transition: opacity 0.2s ease-in-out;
 
+          &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
+        }
+      }
     }
   }
 }
@@ -585,6 +646,9 @@ body {
           grid-template-rows: repeat(4, 300px);
         }
       }
+    }
+    footer {
+      flex-direction: row;
     }
   }
 }
@@ -674,5 +738,23 @@ body {
         }
       }
     }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(80px);
+  }
+  40% {
+    transform: translateY(-80px);
+  }
+  50% {
+    transform: translateY(-80px);
+  }
+  75% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(80px);
   }
 }

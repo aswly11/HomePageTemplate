@@ -16,14 +16,17 @@ window.addEventListener("load", function () {
     for (const [i, element] of Array.from(sliderItems).entries()) {
       if (i == index % sliderItems.length) {
         element.classList.add("active");
+        element.children.message.classList.add("slide");
       } else {
+          element.children.message.classList.remove("slide");
         element.classList.remove("active");
+
       }
     }
     index++;
     setTimeout(() => {
       repeatOften();
-    }, 3000);
+    }, 5000);
   }
   repeatOften();
 
@@ -51,6 +54,8 @@ window.addEventListener("load", function () {
   closeButton.addEventListener("click", function () {
     const carousel = document.querySelector(".carousel");
     carousel.classList.remove("show");
+    let currentItem = document.querySelector("#carousel-items img:not(.hide)");
+    currentItem.classList.add("hide");
   });
 
   const gridItem = document.getElementsByClassName("item");
@@ -64,12 +69,6 @@ window.addEventListener("load", function () {
       carousel.classList.add("show");
       const element = carousel.querySelector(`img[id="${img.id}"]`);
       element.classList.remove("hide");
-      element.parentNode.querySelectorAll(":scope > *").forEach((el) => {
-        if (el !== element) {
-          el.classList.add("hide");
-        }
-      });
-      // load all elemnent at the carosel section then on next to add show to the next img and hid siblings
     });
   }
 });
